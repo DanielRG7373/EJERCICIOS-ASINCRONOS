@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Party de DW</title>
+    <link rel="stylesheet" href="./suitcss.css">
+</head>
+
+<body class="body--light-mode">
+
+    <header class="header">
+        <h1 class="header__title">Soy el header</h1>
+        <button id="toggleMode" class="header__button">Modo claro/oscuro</button>
+    </header>
+
+    <main class="main">
+        <div class="main__grid">
+            <div class="main__content-left">
+                <h1 class="main__content-left__title">Web party de DW</h1>
+                <img class="main__content-left__image" src="./imgs/imagen-general.avif" alt="Imagen de evento">
+
+                <div class="main__bar">
+                    <button class="main__bar__button">Me han activado!</button>
+                </div>
+
+                <div class="main__image-gallery">
+                    <div class="main__image-row">
+                        <img class="main__image-row__item" src="./imgs/imagen-general.avif" alt="Imagen 1">
+                        <img class="main__image-row__item" src="./imgs/imagen-general.avif" alt="Imagen 2">
+                        <img class="main__image-row__item" src="./imgs/imagen-general.avif" alt="Imagen 3">
+                    </div>
+                    <div class="main__image-row">
+                        <img class="main__image-row__item" src="./imgs/imagen-general.avif" alt="Imagen 4">
+                        <img class="main__image-row__item" src="./imgs/imagen-general.avif" alt="Imagen 5">
+                        <img class="main__image-row__item" src="./imgs/imagen-general.avif" alt="Imagen 6">
+                    </div>
+                    <div class="main__image-row">
+                        <img class="main__image-row__item" src="./imgs/imagen-general.avif" alt="Imagen 7">
+                        <img class="main__image-row__item" src="./imgs/imagen-general.avif" alt="Imagen 8">
+                    </div>
+                </div>
+            </div>
+
+            <aside class="sidebar">
+                <h3 class="sidebar__title">Sidebar</h3>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer__text">2024 Web Party de DW.</p>
+    </footer>
+
+    <script>
+        const toggleButton = document.getElementById('toggleMode');
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('body--dark-mode');
+        });
+    </script>
+
+</body>
+
+</html>

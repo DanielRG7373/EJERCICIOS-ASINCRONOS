@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f3f3f3;
+    padding: 20px;
+}
+
+.header__title {
+    margin: 0;
+    font-size: 1em;
+}
+
+.header__button {
+    padding: 10px 15px;
+    font-size: 0.7em;
+    cursor: pointer;
+}
+
+/* _____________________________Modo oscuro */
+.body--dark-mode {
+    background-color: #333;
+    color: white;
+}
+
+.body--dark-mode .header {
+    background-color: #444;
+}
+
+.body--dark-mode .header__button {
+    background-color: #666;
+    color: white;
+}
+/* _______________________________________ */
+
+.main__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 5px;
+    padding: 5px;
+}
+
+.main__content-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.main__content-left__title {
+    text-align: center;
+    font-size: 1.3em;
+}
+
+.main__content-left__image {
+    width: 60%;
+    max-width: 600px;
+    height: auto;
+    margin: 0 auto;
+    display: block; 
+}
+
+.main__bar {
+    background-color: red;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.main__bar__button {
+    padding: 10px 20px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: 0.5s;
+}
+
+.main__bar__button:hover {
+    transition: 0.5s;
+    transform: rotate(90deg)
+}
+
+.main__bar__button:hover {
+    background-color: lightgray;
+}
+
+.main__image-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.main__image-row {
+    display: flex;
+    gap: 5px;
+    justify-content: flex-start;
+}
+
+.main__image-row__item {
+    width: 278px;
+    height: 175px;
+    object-fit: cover;
+    margin: 0;
+    transition: 0.5s;
+}
+.main__image-row__item:hover {
+    transition: 0.5s;
+    transform: rotate(50deg);
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.548);
+
+}
+
+.sidebar {
+    background-color: #f3f3f3;
+    padding: 20px;
+}
+
+.sidebar__title {
+    margin-top: 0;
+    font-size: 1em;
+    color: black;
+}
+
+.footer {
+    background-color: #444;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer__text {
+    margin: 0;
+    font-size: 14px;
+}
