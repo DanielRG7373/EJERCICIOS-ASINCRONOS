@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño Ajustado</title>
+    <style>
+        /* VARIABLES GENERALES */
+        :root {
+            --color-background: #000;
+            --color-text: #fff;
+            --color-text-hover: #ccc;
+            --transition-speed: 1s;
+            --padding-page: 5rem;
+        }
+
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--color-background);
+            color: var(--color-text);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        .Header {
+            padding-right: 180px;
+            padding-left: 180px;
+            padding-top: 90px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .Header-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* MAIN */
+        .Main {
+            padding-top: 80px;
+            padding-left: 180px;
+            padding-right: 180px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex: 1;
+            gap: 4rem;
+            position: relative;
+        }
+
+        /* Sección Izquierda */
+        .Main-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 3rem;
+            max-width: 45%;
+        }
+
+        .Main-title {
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color var(--transition-speed);
+        }
+
+        .Main-title:hover {
+            color: var(--color-text-hover);
+        }
+
+        .Main-options {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity var(--transition-speed), max-height var(--transition-speed);
+        }
+
+        .Main-options.is-active {
+            margin-left: 0px;
+            opacity: 1;
+            max-height: 10rem;
+        }
+
+        .Main-options p {
+            font-size: 0.9rem;
+            margin: 1rem 0;
+            color: #5e5e5e;
+        }
+
+        /* Sección Derecha (Imagen) */
+        .Main-imageContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity var(--transition-speed), transform var(--transition-speed);
+            flex: 1;
+        }
+
+        .Main-imageContainer.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .Main-imageContainer img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* FOOTER */
+        .Footer {
+            margin-bottom: 130px;
+            margin-right: 180px;
+            margin-left: 180px;
+            display: flex;
+            justify-content: flex-start;
+            font-size: 1rem;
+            gap: 3rem;
+        }
+
+        .Footer-section {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            text-align: left;
+        }
+
+        .Footer-link {
+            color: #7b7b7b;
+            text-decoration: none;
+        }
+
+        .Footer-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="Header">
+        <div class="Header-logo">mater</div>
+        <div class="Header-menu" id="menu-toggle"></div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="Main">
+        <!-- Sección Izquierda -->
+        <section class="Main-left">
+            <div>
+                <h2 class="Main-title" data-toggle="options-1">Collection</h2>
+                <div class="Main-options" id="options-1">
+                    <p>Furniture</p>
+                    <p>Lighting</p>
+                    <p>Accessories</p>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="Main-title" data-toggle="options-2">Design</h2>
+                <div class="Main-options" id="options-2">
+                    <p>Concepts</p>
+                    <p>Interior</p>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="Main-title" data-toggle="options-3">Craftmanship</h2>
+                <div class="Main-options" id="options-3">
+                    <p>Handmade</p>
+                    <p>Quality</p>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="Main-title" data-toggle="options-4">Ethics</h2>
+                <div class="Main-options" id="options-4">
+                    <p>Sustainability</p>
+                    <p>Fair Trade</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Derecha (Imagen) -->
+        <section class="Main-imageContainer" id="image-container">
+            <img src="https://via.placeholder.com/500x500" alt="White Chair">
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="Footer">
+        <div class="Footer-section">
+            <a href="#" class="Footer-link">About</a>
+            <a href="#" class="Footer-link">News</a>
+        </div>
+        <div class="Footer-section">
+            <a href="#" class="Footer-link">Contact</a>
+            <a href="#" class="Footer-link">Care</a>
+        </div>
+        <div class="Footer-section">
+            <a href="#" class="Footer-link">Dealers</a>
+            <a href="#" class="Footer-link">Press</a>
+        </div>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script>
+        const titles = document.querySelectorAll('.Main-title');
+        const imageContainer = document.getElementById('image-container');
+
+        titles.forEach(title => {
+            title.addEventListener('click', () => {
+                const target = document.getElementById(title.dataset.toggle);
+                target.classList.toggle('is-active');
+
+                // Mostrar imagen si algún desplegable está activo
+                if (target.classList.contains('is-active')) {
+                    imageContainer.classList.add('is-visible');
+                } else {
+                    imageContainer.classList.remove('is-visible');
+                }
+
+                // Cerrar otros desplegables
+                titles.forEach(other => {
+                    if (other !== title) {
+                        document.getElementById(other.dataset.toggle).classList.remove('is-active');
+                    }
+                });
+            });
+        });
+
+        // Botón cerrar menú
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            document.querySelectorAll('.Main-options').forEach(option => option.classList.remove('is-active'));
+            imageContainer.classList.remove('is-visible');
+        });
+    </script>
+</body>
+
+</html>
